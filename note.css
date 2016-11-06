@@ -1,0 +1,135 @@
+.md-toolbar-tools {
+    font-family: Comic Sans MS;
+    font-size: 20px; 
+    background-color:darkslateblue;
+}
+
+.md-raised {
+    background-color:darkslateblue ;
+    height: 25px;              
+    width: 80px; 
+    border-radius: 3px;
+}
+
+.clock{
+  margin-left:700px;
+  color: lightgrey;
+}
+
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:comic sans ms;
+  font-size:100%;
+ 
+  background:whitesmoke;
+  
+}
+
+.input-append{
+ margin-left: 100px;
+
+}
+
+h1{
+    margin-left: 100px;
+    color:darkslateblue;
+}
+
+h2,p{
+  font-size:20px;
+  font-weight:normal;
+  font-family: comic sans ms;
+  
+}
+
+ul,li{
+  list-style:none;
+}
+
+ul{
+  overflow:hidden;
+  padding:3em;
+}
+
+ul li a{
+  text-decoration:none;
+  color:darkslateblue;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}
+
+ul li{
+  margin:1em;
+  float:left;
+}
+
+ul li h2{
+  font-size:20px;
+  font-weight:bold;
+  padding-bottom:10px;
+}
+
+ul li p{
+  font-family:comic sans ms;
+  font-size:20px;
+}
+
+ul li a{
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform:rotate(-6deg);
+}
+
+ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+
+ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
+}
+
+ul li:nth-child(5n) a{
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+
+ul li a:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+
+ol{text-align:center;}
+ol li{display:inline;padding-right:1em;}
+ol li a{color:#fff;}

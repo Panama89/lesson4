@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<!-- Autori: 
+            Elisa Zappalà     O55000323
+            Mariagrazia Di Sì O55000306  -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Note</title>
+    
+    
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+  
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js'></script>
+   
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  
+    <!-- App Styles -->
+    <link rel="stylesheet" href="note.css"> 
+
+    <!-- Code Behind -->
+    <script src="note.js"></script>
+    
+
+  <body ng-app="NoteApp"> 
+
+   <!-- Toolbar -->
+         <div layout="column" class="no-scroll">
+           <md-toolbar class="md-whiteframe-3dp" class="no-scroll">
+             <div  class="md-toolbar-tools">
+
+    <!--Bottone Home -->      
+
+          <md-button>
+             <md-icon style="color:lightgrey" class="material-icons" onclick="location.href='index.html'">home</md-icon>
+          </md-button>
+        
+        <img src="picture/LogoApp.png" />  
+                     
+                           
+    <!-- Controller per visualizzare l'orologio -->
+
+                <div ng-controller='clockCtrl'>
+                    <p class="clock"> {{ clock | date:'medium'}}</p>
+                </div>
+
+             </div>
+           </md-toolbar> 
+         </div>
+
+    <!-- Sticky Notes -->
+
+    <md-content class="no-scroll">
+
+  <ol>
+    <li><a href="#"></a></li>
+  </ol>
+  <ul>
+    <li>
+      <a href="#">
+        <h2>Fare la spesa</h2>
+        <p>Pasta <br> Zucchero<br> Cioccolato</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <h2>Palestra</h2>
+        <p>Ore 18:00 <br> Tao Gym</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">  
+        <img src="picture/Picture.jpg" /> 
+      </a>
+    </li>
+    <li>
+      <a href="#"> 
+        <img src="picture/picture2.jpg" /> 
+      </a>
+    </li>
+    <li>
+      <a href="#">
+      </a>
+    </li>
+    <li>
+     
+  </ul>
+
+    <!-- Bottone per eliminare le note -->
+
+    <script type="text/ng-template" id="partials/notebook-directive.html">
+    <ul class="thumbnails">
+        <li ng-repeat="note in notes">
+            <my-note class="span2 thumbnail" delete="deleteNote(note.id)" note="note">  
+                <md-button class="md-raised" 
+                        ng-disabled="!noteTitle" ng-click="delete(person)">
+                          <md-icon style="color:lightgrey" class="material-icons">delete</md-icon>
+                     </md-button>
+                <hr/>
+                
+                <p style="color:darkslateblue">{{note.title}}</p> 
+              
+            </my-note>
+        </li>
+    </ul>
+    </script>
+
+    <!-- Input text per aggiungere note con annesso pulsante -->
+
+    <div ng-controller="NotebookCtrl">
+        <div class="page-header">
+            <h1> Notes</h1>
+        </div>
+        <div class="form-actions">
+            <div class="input-append">
+                <form ng-submit="addNote(noteTitle);resetForm();">
+                    <input class="span3" ng-model="noteTitle" size="16" type="text" placeholder="Add a note">
+                    <md-button class="md-raised" 
+                        ng-disabled="!noteTitle" ng-click="addNote(noteTitle);resetForm();">
+                          <md-icon style="color:lightgrey" class="material-icons">add</md-icon>
+                     </md-button>
+                </form>
+            </div>
+        </div>
+        <my-notebook notes="getNotes()" ondelete="deleteNote(id)"></my-notebook>
+    </div>
+</div>
+
+      
+      </md-content>
+   </body>
+</html>

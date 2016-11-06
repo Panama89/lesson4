@@ -1,0 +1,44 @@
+.md-toolbar-tools {
+    font-family: Comic Sans MS;
+    font-size: 20px; 
+    background-color:darkslateblue;
+}
+
+.clock{
+    background-color: darkslateblue;
+    margin-left: 700px;
+    color:lightgray;
+}
+
+.container{
+    background-color: darkslateblue;
+    font-size:20px;
+}
+
+.panel1{
+    background-color: darkslateblue;
+
+}
+.panel-primary{
+    background-color: darkslateblue;
+    font-family: Comic Sans MS;
+    font-size:20px;
+}
+
+.global-wrapper{
+    background-color:whitesmoke;
+}
+
+.header md-toolbar md-icon.md-default-theme {
+    color: whitesmoke; 
+}
+
+.list-group-item{
+   font-size:20px;
+   color:darkslateblue;
+}
+
+.form-control{
+  font-size:20px;
+}
+

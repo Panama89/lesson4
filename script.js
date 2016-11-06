@@ -1,11 +1,57 @@
 (function(angular) {
 
     'use strict';
-    var module = angular.module('todoApp', ['ngMaterial']);
+    var vm = angular.module('todoApp', ['ngMaterial'])
 
-    angular.module('todoApp').controller('TodoController', TodoController);
+   /* Controller per gestire la Sidenav*/
 
-    //This is the application controller
+    vm.controller('sideCtrl', SideController);
+
+    function SideController ($scope, $mdSidenav) {
+	$scope.showMobileMainHeader = true;
+	$scope.openSideNavPanel = function() {
+		$mdSidenav('left').open();
+	};
+	$scope.closeSideNavPanel = function() {
+		$mdSidenav('left').close();
+	};
+    }
+
+
+    /*Controller per l'orologio */
+
+    vm.controller('clockCtrl', ClockController);
+
+    function ClockController($scope, $timeout) {
+    $scope.clock = "loading clock..."; 
+    $scope.tickInterval = 1000 
+
+    var tick = function () {
+        $scope.clock = Date.now() 
+        $timeout(tick, $scope.tickInterval); 
+    }
+
+   
+    $timeout(tick, $scope.tickInterval);
+    }   
+
+
+    /* Controller per le Info */
+
+    vm.controller('boCtrl', bottomSheetController);
+
+        function bottomSheetController ($scope, $mdBottomSheet) {
+           $scope.openBottomSheet = function() {
+              $mdBottomSheet.show({
+                 template: '<md-bottom-sheet> Authors: <b> <br> Elisa Zappal\à <br> Mariagrazia Di S\ì </b> <br> C.d.LM Ingegneria Informatica <br> Universit\à di Catania </md-bottom-sheet>'
+              });
+           };
+        }   
+
+    /* Controller dei Task */
+
+    vm.controller('TodoController', TodoController);
+
     function TodoController(storageService, $mdDialog) {
         var vm = this;
 
@@ -63,7 +109,7 @@
         //Add a new task to the items list 
         vm.addTask = function(ev) {
             var confirm = $mdDialog.prompt()
-                .title('Add new task')
+                .title('Add New Task')
                 .placeholder('Your task title...')
                 .ariaLabel('Your task title...')
                 .targetEvent(ev)

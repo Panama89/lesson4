@@ -1,14 +1,60 @@
-/* Style for add button */
 
-.add-button {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
+.md-toolbar-tools {
+    font-family: Comic Sans MS;
+    font-size: 20px; 
+    background-color:darkslateblue;
+
 }
+
+.md-sidenav-left{
+  background-color: whitesmoke;
+}
+   
+.contentside{
+  background-color: whitesmoke;
+}
+
+.picturecontact{
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.clock{
+  margin-left: 550px;
+}
+
+.clock1{
+  margin-left: 650px;
+}
+
+.md-raised1{
+    position:absolute;
+    bottom: 70px;
+    right: 30px;
+    background-color:darkslateblue ;
+    
+}
+
+.md-subheader-inner{
+  font-family: Comic Sans MS; 
+  background-color:whitesmoke;
+
+}
+
+.font{
+  font-family: Comic Sans MS;
+  color:darkslateblue;
+  font-size: 15px;
+  
+}
+
+
+
 
 md-tabs.md-dynamic-height md-tabs-content-wrapper,
 md-tab-content.md-no-scroll,
 md-tab-content.md-no-scroll>div,
+
 .no-scroll {
     height: 100%;
     overflow-y: hidden !important;
@@ -17,12 +63,58 @@ md-tab-content.md-no-scroll>div,
 .scroll {
     height: 100%;
     overflow-y: auto;
+
 }
 
 .tab-content {
     height: calc(100% - 50px);
+    background:whitesmoke;
+
 }
 
 .selected {
-    background: #efefef;
+    background:lightsteelblue;
+}
+
+.header md-toolbar md-icon.md-default-theme {
+  color: white; }
+
+  @media only screen 
+  and (max-width: 736px) { 
+  .mobile {
+    display:block;
+  }
+  .desktop {
+    display:none;
+  }
+  .tablet {
+    display:none;
+  }
+}
+
+@media only screen 
+  and (min-width: 736px) 
+  and (max-width: 1200px){ 
+  .tablet {
+    display:block;
+  }
+  .desktop {
+    display:none;
+  }
+  .mobile {
+    display:none;
+  }
+}
+
+@media only screen 
+  and (min-width: 1200px) {
+  .desktop {
+    display:block;
+  }
+  .tablet {
+    display:none;
+  }
+  .mobile {
+    display:none;
+  }
 }

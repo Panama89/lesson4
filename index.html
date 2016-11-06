@@ -1,16 +1,18 @@
 <!doctype html>
-<html lang="en">
 
-<head>
+<!-- Autori: 
+            Elisa Zappalà     O55000323
+            Mariagrazia Di Sì O55000306  -->
+
+<html lang="en">
+  <head>
     <meta charset="UTF-8">
     <title>Task App</title>
 
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- App Styles -->
-    <link rel="stylesheet" href="style.css">
-
+  
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -20,27 +22,117 @@
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
+    <!-- App Styles -->
+    <link rel="stylesheet" href="style.css">
+
     <!-- Code Behind -->
     <script src="script.js"></script>
     <script src="customList.directive.js"></script>
     <script src="storageService.js"></script>
+  </head>
 
-</head>
 
-<body ng-app="todoApp" class="no-scroll">
-    <div ng-controller="TodoController as ctrl" class="no-scroll">
-        <div layout="column" class="no-scroll">
-            <md-toolbar class="md-whiteframe-3dp">
-                <div class="md-toolbar-tools">
-                    <h2>
-                        <span>Task App</span>
-                    </h2>
-                    <span flex></span>
-                    <md-button ng-disabled="ctrl.selectedItem == null" ng-click="ctrl.deleteItem()" class="md-icon-button" aria-label="Delete">
-                        <md-icon> delete </md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+ <body ng-app="todoApp" class="no-scroll">
+
+
+     <!-- Controller per la Sidenav -->
+     <div ng-controller="sideCtrl" class="no-scroll">
+
+     <!--Controller per la gestione dei Task -->
+     <div ng-controller="TodoController as ctrl" class="no-scroll">
+     
+ <!-- Sidenav -->
+	
+ <md-sidenav class="md-sidenav-left" md-component-id="left">
+	
+ <md-toolbar layout="row" >
+	<div class="md-toolbar-tools">
+       <h2>
+            <span>Task Control</span>
+       </h2>
+            <span flex></span>
+
+ 
+ <!-- Contenuto della Sidenav -->
+
+ <!-- Bottone chiusura della Sidenav -->      
+          <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="closeSideNavPanel()">
+             <md-tooltip>Close Sidenav Panel</md-tooltip>
+             <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+          </md-button>
+     </div>
+    
+  </md-toolbar> 
+
+
+  <!-- 1. Contacts -->
+
+	<md-content layout-padding="" class="contentside">
+        <md-list>
+	        <md-subheader style="font-size:18px; color:darkslateblue"> <b> Contacts <b> </md-subheader>
+                <md-list-item>
+		            <img class="picturecontact" src="Picture/Contact.png">
+                        <md-button onclick="location.href='Rubrica.html'" class="font"> <b>Contact List</b> </md-button>
+                 </md-list-item>
+                     <md-divider>   
+                  </md-divider>
+
+
+   <!-- 2. Notes -->
+
+	         <md-subheader style="font-size:18px; color:darkslateblue"> <b> Notes <b> </md-subheader>
+	             <md-list-item>
+                     <img class="picturecontact" src="Picture/Note.png">
+                         <md-button onclick="location.href='Note.html'" class="font"><b> Note</b></md-button>
+                 </md-list-item>
+	                 <md-divider>   
+                  </md-divider>
+
+         </md-list>
+     </md-content>
+   </md-sidenav>
+<!-- Fine Sidenav -->
+
+
+<!-- Toolbar -->
+
+  <md-toolbar class="desktop">
+     <div class="md-toolbar-tools">
+
+    <!-- Bottone per aprire la Sidenav -->
+         <md-button class="md-icon-button" aria-label="Side Panel" ng-click="openSideNavPanel()">
+            <md-tooltip>Sidenav Panel</md-tooltip>
+               <md-icon style="color:lightgrey" class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
+         </md-button> 
+       <img src="picture/LogoApp.png" />  
+               
+     <!-- Controller per visualizzare l'orologio -->
+
+         <div ng-controller='clockCtrl'>
+            <p class="clock"> {{ clock | date:'medium'}}</p>
+         </div>
+         <span flex></span>
+	
+     <!-- Bottone per cancellare i task -->
+          
+          <md-button class="mb-fab" ng-click="ctrl.deleteItem()" class="md-icon-button" aria-label="Delete">
+             <md-icon style="color:lightgrey"> delete </md-icon>
+                <md-tooltip> Delete Task </md-tooltip>
+          </md-button>
+
+     <!-- Bottone per le info -->
+           
+          <div ng-controller="boCtrl" >
+	        <md-button  class="md-icon-button2" class="no-scroll" aria-label="Bottom Sheet" ng-click="openBottomSheet()">
+               <md-icon style="color:lightgrey" class="material-icons">info</md-icon>
+                  <md-tooltip> Info </md-tooltip>
+            </md-button> 
+          </div>
+       </div>
+
+ </md-toolbar> 
+
+ <!-- Gestione Task -->
             <md-content class="no-scroll">
                 <md-tabs md-dynamic-height md-border-bottom class="no-scroll">
                     <md-tab label="Todo">
@@ -53,12 +145,13 @@
                         <custom-list items="ctrl.items" selected-item="ctrl.selectedItem" filter-function="ctrl.all"></custom-list>
                     </md-tab>
                 </md-tabs>
-                <md-button class="md-fab md-primary add-button" aria-label="Add Todo" ng-click="ctrl.addTask($event)">
-                    <md-icon>add</md-icon>
+                <md-button class="md-raised1" aria-label="Add Todo" ng-click="ctrl.addTask($event)">
+                    <md-icon style="color:lightgrey">add</md-icon>
+                       <md-tooltip> Add Task </md-tooltip>
                 </md-button>
             </md-content>
-
-        </div>
-</body>
-
+  
+         </div>
+       </div>
+    </body>
 </html>
