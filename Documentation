@@ -1,0 +1,66 @@
+Documentazione PROGETTO ANGULARJS  TASK APP
+
+Autori:
+ELISA ZAPPALA’            O55000323
+MARIAGRAZIA DI SI’    O55000306
+C.d.LM in Ingegneria Informatica     a.a. 2016/2017       Università di Catania 
+
+Il presente documento illustrerà l’ampliamento delle funzionalità di base della web app. 
+I test del funzionamento dell’app sono stati eseguiti su browser quali Chrome, Firefox, Safari e in essi non sono stati riscontrati problemi nella visualizzazione degli elementi. Tuttavia nel browser Internet Explorer nulla viene visualizzato correttamente. 
+-	File index.html   
+La pagina fa riferimento ai file script.js e style.css 
+
+Questa è la schermata principale dell’app. Le modifiche apportate sono le seguenti: 
+
+	Toolbar 
+•	Modifica del colore della toolbar
+•	Inserimento di un pulsante “Sidenav Panel” che apre a scorrimento laterale una sidebar che si sovrappone al resto del contenuto senza spostarlo. 
+•	Inserimento del logo app
+•	Inserimento di un orologio digitale
+•	Inserimento di un pulsante “Info” che visualizza gli autori dell’app
+Le icone presenti sono state selezionate dal sito https://material.io/icons/
+
+	Add Task
+•	Il pulsante per l’aggiunta dei task è stato modificato con un bottone angular raised  
+
+	Sidenav Panel 
+•	Inserimento di un pulsante per chiudere la Sidenav
+•	Titolo della panel
+•	Inserimento di icone (inizialmente quelle prescelte era state selezionate dal sito sopra indicato, ma non essendo colorate si è optato per altri tipi di icone).
+•	Inserimento di un menù che prevede la possibilità di accedere:
+1.	Lista dei contatti (pulsante Contact List)
+2.	Note (pulsante Note)
+
+-	File rubrica.html
+La pagina fa riferimento ai file rubrica.js e rubrica.css 
+
+Questa è la schermata che visualizza la Lista Contatti a cui è possibile accedere dal menù della Sidenav. 
+
+	Toolbar
+•	Inserimento di un pulsante Home che permette di ritornare alla schermata principale
+•	Inserimento del logo app
+•	Inserimento di un orologio digitale
+
+	Container della lista 
+Sono presenti due finestre: nella prima vi è l’elenco di tutti i contatti con annessa input text che permette di filtrare i contatti in base al nome; nella seconda vengono visualizzate le informazioni di un contatto (generalità, numero di telefono, email) se viene premuto, con la possibilità di modifiche ed inoltre tramite il pulsante “Add” è possibile aggiungere un nuovo contatto e salvarlo in lista. 
+
+-	File note.html
+La pagina fa riferimento ai file note.js e note.css 
+
+Questa è la schermata che permette di gestire l’aggiunta di note a cui è possibile accedere dal menù della Sidenav. 
+Ci sono due modi per visualizzare le note o tramite gli sticky notes o mediante una input text. 
+
+	Toolbar
+•	Inserimento di un pulsante Home che permette di ritornare alla schermata principale
+•	Inserimento del logo app
+•	Inserimento di un orologio digitale
+
+	Sticky Notes
+•	L’utilizzo di questi sticky notes è puramente a scopo grafico. Infatti le note sono visualizzate in maniera statica senza possibilità di modificarle. 
+
+	Note 
+•	Inserimento di una input text per scrivere la propria nota
+•	Inserimento di un pulsante “material icons” per aggiungere le note
+•	Inserimento di un pulsante “material icons” per eliminare le note.
+
+
